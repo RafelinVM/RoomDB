@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">RoomDB</string>
+    <string name="nama_produk">Nama_Produk</string>
+    <string name="deskripsi">Deskripsi</string>
+</resources>
