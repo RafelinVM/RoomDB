@@ -39,34 +39,13 @@ public class ProdukAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder holder;
-        if (convertView == null) {
-            // Inflate the view
-            convertView = LayoutInflater.from(context).inflate(R.layout.item, parent, false);
-            holder = new ViewHolder();
+        View view = LayoutInflater.from(context).inflate(R.layout.item,null);
+        TextView tvNama = view.findViewById(R.id.tv_nama);
+        TextView tvDeskripsi = view.findViewById(R.id.tv_deskripsi);
 
-            // Initialize views
-            holder.tvNama = convertView.findViewById(R.id.tv_nama);
-            holder.tvDeskripsi = convertView.findViewById(R.id.tv_deskripsi);
+        tvNama.setText(produkList.get(position).nama);
+        tvDeskripsi.setText(produkList.get(position).deskripsi);
 
-            // Set the holder as tag to avoid calling findViewById again
-            convertView.setTag(holder);
-        } else {
-            // Reuse the ViewHolder to avoid re-inflating
-            holder = (ViewHolder) convertView.getTag();
-        }
-
-        // Set data into the views
-        Produk produk = produkList.get(position);
-        holder.tvNama.setText(produk.nama);
-        holder.tvDeskripsi.setText(produk.deskripsi);
-
-        return convertView;
-    }
-
-    // ViewHolder pattern for performance optimization
-    static class ViewHolder {
-        TextView tvNama;
-        TextView tvDeskripsi;
+        return view;
     }
 }
